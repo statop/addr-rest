@@ -23,6 +23,9 @@ public class ErrorHandler extends ResponseEntityExceptionHandler implements Erro
 {
     @ExceptionHandler(Exception.class)
 	public final ResponseEntity<Object> handleOtherException(Exception ex, WebRequest request) {
+        if (ex instanceof NotFoundException) {
+            return super.handleExceptionInternal(ex, new ErrorResponse(HttpStatus.NOT_FOUND.value(), ""), new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+        }
         return super.handleException(ex, request);
     }
 

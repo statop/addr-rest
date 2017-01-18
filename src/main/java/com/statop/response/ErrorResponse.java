@@ -1,23 +1,19 @@
 package com.statop.response;
 
-public class ErrorResponse
-{
+public class ErrorResponse {
     private final int code;
     private final String message;
 
-    public ErrorResponse(int code, String message)
-    {
+    public ErrorResponse(int code, String message) {
         this.code = code;
         this.message = message;
     }
 
-    public int getCode()
-    {
+    public int getCode() {
         return code;
     }
 
-    public String getMessage()
-    {
+    public String getMessage() {
         return message;
     }
 }

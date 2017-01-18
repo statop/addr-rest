@@ -9,20 +9,17 @@ import com.statop.response.Address;
 
 import org.springframework.web.client.RestTemplate;
 
-public class GoogleMapsAddressService implements AddressService
-{
+public class GoogleMapsAddressService implements AddressService {
     private final String url;
     private final RestTemplate restTemplate;
 
-    public GoogleMapsAddressService(String url, RestTemplate restTemplate)
-    {
+    public GoogleMapsAddressService(String url, RestTemplate restTemplate) {
         this.url = url;
         this.restTemplate = restTemplate;
     }
 
     @Override
-    public Address getAddress(double latitude, double longitude)
-    {
+    public Address getAddress(double latitude, double longitude) {
         GoogleMapsResponse response = restTemplate.getForObject(url, GoogleMapsResponse.class,
                 ImmutableMap.of("latitude", String.valueOf(latitude), "longitude", String.valueOf(longitude)));
 
@@ -37,13 +34,11 @@ public class GoogleMapsAddressService implements AddressService
     public static class GoogleMapsResponse {
         private GoogleMapsResponseResult[] results;
 
-        public GoogleMapsResponseResult[] getResults()
-        {
+        public GoogleMapsResponseResult[] getResults() {
             return results;
         }
 
-        public void setResults(GoogleMapsResponseResult[] results)
-        {
+        public void setResults(GoogleMapsResponseResult[] results) {
             this.results = results;
         }
     }
@@ -52,13 +47,11 @@ public class GoogleMapsAddressService implements AddressService
     public static class GoogleMapsResponseResult {
         private String formatted_address;
 
-        public String getFormatted_address()
-        {
+        public String getFormatted_address() {
             return formatted_address;
         }
 
-        public void setFormatted_address(String formatted_address)
-        {
+        public void setFormatted_address(String formatted_address) {
             this.formatted_address = formatted_address;
         }
     }

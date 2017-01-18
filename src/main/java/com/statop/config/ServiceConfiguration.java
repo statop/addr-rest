@@ -10,14 +10,13 @@ import org.springframework.web.client.RestTemplate;
 
 
 @Configuration
-public class ServiceConfiguration
-{
+public class ServiceConfiguration {
+
     @Value("${google.addressService.url}")
     private String googleAddressServiceUrl;
 
     @Bean
-    public RestTemplate restTemplate()
-    {
+    public RestTemplate restTemplate() {
         return new RestTemplate();
     }
 

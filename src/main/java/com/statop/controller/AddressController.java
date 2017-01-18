@@ -29,8 +29,7 @@ public class AddressController {
     public Address address(@PathVariable double latitude, @PathVariable double longitude) {
         Address address = addressService.getAddress(latitude, longitude);
 
-        if (address == null)
-        {
+        if (address == null) {
             throw new NotFoundException(latitude, longitude);
         }
 
@@ -58,11 +57,9 @@ public class AddressController {
     public List<Address> last10Addresses() {
         List<Address> addresses = new ArrayList<>(10);
 
-        for (Address addr : last10Calls.descendingMap().values())
-        {
+        for (Address addr : last10Calls.descendingMap().values()) {
             addresses.add(addr);
-            if (addresses.size() >= 10)
-            {
+            if (addresses.size() >= 10) {
                 break;
             }
         }
