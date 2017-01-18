@@ -19,9 +19,9 @@ $ mvn clean test
 
 Get Address for Lat/Long:
 
-http://localhost:8080/address/{latitude}/{longitude}
+http://localhost:8080/address/{latitude}/{longitude}/
 
-Example: http://localhost:8080/address/44.4647452/7.3553838
+Example: http://localhost:8080/address/33.969601/-84.100033/
 
 
 
